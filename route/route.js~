@@ -1,0 +1,5 @@
+home = require("../application/controller/home.js");
+
+module.exports = function(app) {
+	
+}

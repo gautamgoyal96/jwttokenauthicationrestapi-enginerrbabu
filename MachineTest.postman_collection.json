@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "f6b6d1c7-3ece-4fd5-9734-5e77a859a04e",
+		"name": "MachineTest",
+		"description": "You are selected for machine task\nSo the task is as follows :-\nCreate REST apis for following scenarios and share the postman collection and source code with database on email with us on tomorrow before 4pm\n1. Signup and login using Email and Password and return JWT token with success response\n2. Send a verification link on email when user registered first time and verify user account after clicking on verify link\n3. Create Category with image\n4. List of Category (with pagination)\n5. Create product associated with category id (with image)\n6. Assign product to User\n7. View List of products (with category name, and user name) using pagination\n8. Search by product name (by product name, category name and user name)\n9. Sort by date added\n10. Filter by Product Category\n11. Delete Product\n9. Update Product\n(Use JWT token for getting user data)\nIf you have any query so you are feel free to asking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "usersRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "gautamgoyal.mindiii@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Gautam Goyal",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/usersRegistration",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usersRegistration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "gautamgoyal.mindiii@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/verification",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"verification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "gautamgoyal.mindiii@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/sign_in",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sign_in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/bezoar/Desktop/images.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/createCategory",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"createCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categoryList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXRhbWdveWFsLm1pbmRpaWlAZ21haWwuY29tIiwiaWF0IjoxNTg4ODQ2OTMxLCJleHAiOjE1ODg4NDg3MzF9.Yj02YVIsNmkwmBenBCaKQOms0idmuUcXfHSKPO6oRa4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "limit",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/categoryList",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"categoryList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/bezoar/Desktop/images.png"
+						},
+						{
+							"key": "categoryId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/createProduct",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"createProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "limit",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "categoryId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "orderBY",
+							"value": "DESC",
+							"type": "text"
+						},
+						{
+							"key": "search",
+							"value": "gautam",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/productList",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"productList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assignProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productId",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "userId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/assignProduct",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"assignProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/bezoar/Desktop/images.png"
+						},
+						{
+							"key": "categoryId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/updateProduct",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"updateProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/deleteProduct",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"deleteProduct"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
